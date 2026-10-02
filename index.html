@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="다섯 가지 패턴과 보관함으로 빙고 재화를 아끼는 7×7 빙고 시뮬레이터. 입력 취소와 누적 재화 확인을 지원합니다." />
+    <title>트릭컬 빙고 시뮬레이터</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main>
+      <header class="page-header">
+        <h1>트릭컬 빙고 시뮬레이터</h1>
+      </header>
+
+      <section class="play-area" aria-label="빙고 시뮬레이터">
+        <div class="resource-summary" aria-label="사용한 빙고 재화">
+          <h2>사용한 빙고 재화</h2>
+          <p class="resource-total"><strong id="spent-count">0</strong><span>개</span></p>
+          <h2 class="sr-only">빙고판</h2>
+          <p class="filled-count"><strong id="filled-count">0</strong><span> / 49칸</span></p>
+        </div>
+
+        <div class="board-zone">
+          <div class="board-space">
+            <div class="board-layout">
+              <div class="coordinate-corner" aria-hidden="true"></div>
+              <div id="column-labels" class="column-labels" aria-hidden="true"></div>
+              <div id="row-labels" class="row-labels" aria-hidden="true"></div>
+              <div class="board-frame">
+                <div id="board" class="board" role="img" aria-label="7행 7열 빙고판. 모든 칸이 비어 있습니다."></div>
+                <div id="completion-overlay" class="completion-overlay" hidden>
+                  <div class="completion-box">
+                    <div id="feedback" class="feedback" role="status" aria-live="polite" aria-atomic="true"></div>
+                    <button id="skip-button" class="skip-button" type="button" hidden>건너뛰기</button>
+                  </div>
+                </div>
+              </div>
+              <div class="legend" aria-label="칸 표시 안내">
+                <span><i class="legend-cell filled"></i>채운 칸</span>
+                <span><i class="legend-cell latest"></i>최근 배치</span>
+                <span class="anchor-legend"><i class="legend-anchor"></i>기준 칸</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="board-bottom">
+            <div class="board-meta">
+              <button id="undo-button" class="board-action undo-button" type="button" disabled>되돌리기</button>
+              <button id="reset-button" class="board-action reset-button" type="button" disabled>초기화</button>
+            </div>
+            <aside id="hold" class="hold" aria-labelledby="hold-title">
+              <div class="hold-heading"><h2 id="hold-title">보관함</h2><span id="hold-feedback" class="hold-feedback" aria-hidden="true"></span></div>
+              <div id="hold-content" class="hold-content"><span class="hold-empty-mark" aria-hidden="true">—</span><span class="sr-only">비어 있음</span></div>
+            </aside>
+          </div>
+        </div>
+
+        <div class="pattern-section">
+          <h2 id="pattern-heading" class="sr-only">패턴 입력</h2>
+          <div id="pattern-buttons" class="pattern-buttons" role="group" aria-labelledby="pattern-heading"></div>
+        </div>
+
+      </section>
+      <noscript>시뮬레이터를 사용하려면 JavaScript를 활성화해 주세요.</noscript>
+    </main>
+  </body>
+</html>

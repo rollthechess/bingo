@@ -1,0 +1,10 @@
+{
+  "name": "trickcal-bingo-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "트릭컬 빙고 시뮬레이터",
+  "scripts": {
+    "test": "node scripts/verify.mjs"
+  }
+}
